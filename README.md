@@ -31,3 +31,9 @@ I can use shortcodes like `:fire:` that get converted into emojis like 🔥
 * You can see your own note
 
 ## Program features
+
+* [ ]
+
+## Learning goals for the week:
+
+*[ ]
