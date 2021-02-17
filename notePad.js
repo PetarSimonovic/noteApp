@@ -1,12 +1,15 @@
 let noteList = [];
-
 let notePList = document.getElementById("notes");
 
 function addNote() {
-  noteList.push(document.getElementById("addNoteField").value);
-
-  let pNode = document.createElement("p");
   let text = document.getElementById("addNoteField").value;
+  noteList.push(text);
+  createPara(text)
+  document.getElementById("addNoteField").value = ""
+}
+
+function createPara(text)  {
+  let pNode = document.createElement("p");
   let textNode = document.createTextNode(text);
   pNode.appendChild(textNode);
   notePList.appendChild(pNode);

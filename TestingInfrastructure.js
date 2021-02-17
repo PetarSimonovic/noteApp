@@ -41,4 +41,15 @@ it("page should show two notes when adding two notes", () => {
   addNote();
   pageHasContent("1");
   pageHasContent("2");
+  clear();
 });
+
+it("should clear the NotePad after a note has been added", () => {
+  clear();
+  fillInContentById("addNoteField", "This text should not be in NotePad")
+  addNote();
+  expect(document.getElementById("addNoteField").value).toEqual('')
+  clear();
+});
+
+console.log("Tests complete");

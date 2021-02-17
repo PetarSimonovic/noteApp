@@ -30,7 +30,7 @@ function pageHasContent(str) {
 
 function pageDoesNotHaveContent(str) {
   if (page.textContent.includes(str)) {
-    console.log("page doesn't has content!");
+    console.log("page doesn't have content!");
   } else {
     console.warn("page has content!");
   }
