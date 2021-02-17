@@ -32,8 +32,8 @@ function fillInContentById(id, content) {
   document.getElementById(id).value = content;
 }
 
-
 function clear() {
   noteList = [];
-  fillInContentById('addNoteField', '')
+  fillInContentById("addNoteField", "");
+  notePList.innerText = "";
 }
