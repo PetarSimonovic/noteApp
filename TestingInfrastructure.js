@@ -32,3 +32,13 @@ it("page should have note on it after adding a note", () => {
   pageHasContent("Other note content blah blah blah");
   clear();
 });
+
+it("page should show two notes when adding two notes", () => {
+  clear();
+  fillInContentById("addNoteField", "1");
+  addNote();
+  fillInContentById("addNoteField", "2");
+  addNote();
+  pageHasContent("1");
+  pageHasContent("2");
+});

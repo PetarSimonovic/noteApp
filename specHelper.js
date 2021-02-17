@@ -28,6 +28,14 @@ function pageHasContent(str) {
   }
 }
 
+function pageDoesNotHaveContent(str) {
+  if (page.textContent.includes(str)) {
+    console.log("page doesn't has content!");
+  } else {
+    console.warn("page has content!");
+  }
+}
+
 function fillInContentById(id, content) {
   document.getElementById(id).value = content;
 }
