@@ -1,5 +1,7 @@
 let noteList = [];
 let notePList = document.getElementById("notes");
+let addNoteButton = document.getElementById("addNoteButton");
+addNoteButton.addEventListener("click", addNote);
 
 function addNote() {
   let text = document.getElementById("addNoteField").value;
@@ -14,6 +16,3 @@ function createPara(text)  {
   pNode.appendChild(textNode);
   notePList.appendChild(pNode);
 }
-
-let addNoteButton = document.getElementById("addNoteButton");
-addNoteButton.addEventListener("click", addNote);
