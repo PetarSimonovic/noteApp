@@ -5,30 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script defer src="notePad.js"></script>
+    <script defer src="assert.js"></script>
+    <script defer src="TestingInfrastructure.js"></script>
+  
   </head>
   <body>
-    <h1>Test Header</h1>
-    <p>Pee block!</p>
-    <form action="" method="post">
-      <input
-        id="addNote"
-        type="title"
-        placeholder="Note title"
-        name="note-title"
-      />
-      <br />
-      <input
-        id="addNoteField"
-        type="text"
-        placeholder="Add note..."
-        name="add-ote-field"
-      />
-      <br />
-      <input id="addNoteButton" type="submit" value="Add note" />
-    </form>
-    <script src="circle.js"></script>
-    <script src="assert.js"></script>
-    <script src="circle-tests.js"></script>
-    <script src="TestingInfrastructure.js"></script>
+    <h1>Notes</h1>
+    <p>NotePad:</p>
+    <textarea name="add-note-field" id="addNoteField" cols="30" rows="10" placeholder="Add note..."></textarea>
+  </br>
+    <button type="button" name="button" id="addNoteButton">Add Note</button>
   </body>
 </html>
