@@ -17,6 +17,13 @@ function expect(expected) {
         console.warn("Fail");
       }
     },
+    toNotEqual(actual) {
+      if (expected !== actual) {
+        console.log("Pass");
+      } else {
+        console.warn("Fail");
+      }
+    },
   };
 }
 
@@ -44,4 +51,14 @@ function clear() {
   noteList = [];
   fillInContentById("addNoteField", "");
   notePList.innerText = "";
+}
+
+function openModal() {
+  let modal = document.getElementById("modalWrapper");
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  let modal = document.getElementById("modalWrapper");
+  modal.style.display = "none";
 }

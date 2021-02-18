@@ -46,18 +46,36 @@ it("page should show two notes when adding two notes", () => {
 
 it("should clear the NotePad after a note has been added", () => {
   clear();
-  fillInContentById("addNoteField", "This text should not be in NotePad")
+  fillInContentById("addNoteField", "This text should not be in NotePad");
   addNote();
-  expect(document.getElementById("addNoteField").value).toEqual('')
+  expect(document.getElementById("addNoteField").value).toEqual("");
   clear();
 });
 
 it("should be able to identify a note and its href", () => {
   clear();
-  fillInContentById("addNoteField", "This is a note to test link function")
+  fillInContentById("addNoteField", "This is a note to test link function");
   addNote();
-  expect(document.getElementById("note0").href).toEqual('#0')
+  expect(document.getElementById("note0")).toNotEqual(null);
   clear();
-})
+});
+
+it("can open a Modal", () => {
+  clear();
+  openModal();
+  expect(document.getElementById("modalWrapper").style.display).toEqual(
+    "block"
+  );
+  closeModal();
+  clear();
+});
+
+it("can close a modal", () => {
+  clear();
+  openModal();
+  closeModal();
+  expect(document.getElementById("modalWrapper").style.display).toEqual("none");
+  clear();
+});
 
 console.log("Tests complete");

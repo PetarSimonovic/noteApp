@@ -7,13 +7,13 @@ addNoteButton.addEventListener("click", addNote);
 function addNote() {
   let text = document.getElementById("addNoteField").value;
   noteList.push(text);
-  createListItem(text)
-  document.getElementById("addNoteField").value = ""
+  createListItem(text);
+  document.getElementById("addNoteField").value = "";
 }
 
-function createListItem(text)  {
+function createListItem(text) {
   let liNode = document.createElement("li");
-  let aNode = document.createElement("a")
+  let aNode = document.createElement("a");
   let textNode = document.createTextNode(text);
   aNode.appendChild(textNode);
   liNode.appendChild(aNode);
@@ -22,7 +22,7 @@ function createListItem(text)  {
 }
 
 function addAttributes(aNode) {
-  index = noteList.length - 1
-  aNode.href=`#${index}`;
-  aNode.id=`note${index}`;
+  index = noteList.length - 1;
+  aNode.href = `/#${index}`;
+  aNode.id = `note${index}`;
 }
