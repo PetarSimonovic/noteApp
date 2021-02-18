@@ -52,13 +52,3 @@ function clear() {
   fillInContentById("addNoteField", "");
   notePList.innerText = "";
 }
-
-function openModal() {
-  let modal = document.getElementById("modalWrapper");
-  modal.style.display = "block";
-}
-
-function closeModal() {
-  let modal = document.getElementById("modalWrapper");
-  modal.style.display = "none";
-}

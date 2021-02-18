@@ -4,6 +4,11 @@ let addNoteButton = document.getElementById("addNoteButton");
 
 addNoteButton.addEventListener("click", addNote);
 
+notePList.addEventListener("click", e => {
+  console.log(e.target);
+  clickNote(e.target.id);
+});
+
 function addNote() {
   let text = document.getElementById("addNoteField").value;
   noteList.push(text);
@@ -23,6 +28,23 @@ function createListItem(text) {
 
 function addAttributes(aNode) {
   index = noteList.length - 1;
-  aNode.href = `/#${index}`;
-  aNode.id = `note${index}`;
+  aNode.href = `#${index}`;
+  aNode.id = `${index}`;
+}
+
+function openModal(note = '') {
+  let modal = document.getElementById("modalWrapper");
+  let para = document.getElementById("note-paragraph");
+  modal.style.display = "block";
+  para.innerHTML = note;
+}
+
+function closeModal() {
+  let modal = document.getElementById("modalWrapper");
+  modal.style.display = "none";
+}
+
+function clickNote(noteId) {
+  note = noteList[noteId];
+  openModal(note);
 }

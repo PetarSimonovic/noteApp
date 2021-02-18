@@ -56,7 +56,7 @@ it("should be able to identify a note and its href", () => {
   clear();
   fillInContentById("addNoteField", "This is a note to test link function");
   addNote();
-  expect(document.getElementById("note0")).toNotEqual(null);
+  expect(document.getElementById("0")).toNotEqual(null);
   clear();
 });
 
@@ -76,6 +76,24 @@ it("can close a modal", () => {
   closeModal();
   expect(document.getElementById("modalWrapper").style.display).toEqual("none");
   clear();
+});
+
+it("will display the full note within the model", () =>{
+  clear();
+  openModal("A note");
+  expect(document.getElementById("note-paragraph").innerHTML).toEqual("A note");
+  closeModal();
+  clear();
+});
+
+it("will display the full note when a href is clicked", () => {
+  clear();
+  fillInContentById("addNoteField", "A really long note is what I keep teling people");
+  addNote();
+  clickNote("0");
+  expect(document.getElementById("note-paragraph").innerHTML).toEqual("A really long note is what I keep teling people");
+  clear();
+  closeModal();
 });
 
 console.log("Tests complete");
