@@ -1,18 +1,28 @@
 let noteList = [];
-let notePList = document.getElementById("notes");
+let notePList = document.getElementById("noteListWrapper");
 let addNoteButton = document.getElementById("addNoteButton");
+
 addNoteButton.addEventListener("click", addNote);
 
 function addNote() {
   let text = document.getElementById("addNoteField").value;
   noteList.push(text);
-  createPara(text)
+  createListItem(text)
   document.getElementById("addNoteField").value = ""
 }
 
-function createPara(text)  {
-  let pNode = document.createElement("p");
+function createListItem(text)  {
+  let liNode = document.createElement("li");
+  let aNode = document.createElement("a")
   let textNode = document.createTextNode(text);
-  pNode.appendChild(textNode);
-  notePList.appendChild(pNode);
+  aNode.appendChild(textNode);
+  liNode.appendChild(aNode);
+  notePList.appendChild(liNode);
+  addAttributes(aNode);
+}
+
+function addAttributes(aNode) {
+  index = noteList.length - 1
+  aNode.href=`#${index}`;
+  aNode.id=`note${index}`;
 }

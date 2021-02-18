@@ -52,4 +52,12 @@ it("should clear the NotePad after a note has been added", () => {
   clear();
 });
 
+it("should be able to identify a note and its href", () => {
+  clear();
+  fillInContentById("addNoteField", "This is a note to test link function")
+  addNote();
+  expect(document.getElementById("note0").href).toEqual('#0')
+  clear();
+})
+
 console.log("Tests complete");
