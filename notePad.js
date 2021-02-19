@@ -2,23 +2,30 @@ let noteList = [];
 let notePList = document.getElementById("noteListWrapper");
 let addNoteButton = document.getElementById("addNoteButton");
 
+let pageStorage = window.localStorage;
+
 addNoteButton.addEventListener("click", addNote);
 
 notePList.addEventListener("click", (e) => {
-  console.log(e.target);
   clickNote(e.target.id);
 });
+
+function addNoteListToStorage() {
+  if(development === true){
+    pageStorage.setItem('notes', noteList);
+  }
+}
 
 function addNote() {
   let text = document.getElementById("addNoteField").value;
   noteList.push(text);
+  addNoteListToStorage();
   createListItem(text);
   document.getElementById("addNoteField").value = "";
 }
 
 function emojifiText(message) {
   let data = { text: message };
-  console.log(data);
   fetch("https://makers-emojify.herokuapp.com", {
     method: "POST", // or 'PUT'
     headers: {
@@ -28,11 +35,8 @@ function emojifiText(message) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("Success:", data);
-      console.log(data);
 
       let emojifiedText = data.emojified_text;
-      console.log(emojifiedText);
       openModal(emojifiedText);
     })
     .catch((error) => {

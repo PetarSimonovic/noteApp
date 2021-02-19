@@ -7,7 +7,7 @@
 // it("should add 2 + 3 to make 4", function () {
 //   expect(2 + 3).toEqual(4);
 // });
-
+let development = false;
 it("should have content that says NotePad!", () => {
   pageHasContent("NotePad");
 });
@@ -100,9 +100,10 @@ it("will display the full note when a href is clicked", () => {
     );
     closeModal();
     clear();
-  }, 500);
+  }, 1000);
 });
 
 setTimeout(() => {
   console.log("Tests complete");
-}, 500);
+  development = true;
+}, 1500);
