@@ -1,0 +1,19 @@
+@font-face {
+  font-family: MarkerFelt;
+  src: url("MarkerFelt.ttf");
+}
+
+* {
+  font-family: MarkerFelt;
+}
+
+body {
+  background-color: rgb(244, 242, 130);
+}
+
+.modal {
+  display: none;
+  border: 1px solid black;
+  z-index: 1;
+  position: relative;
+}
