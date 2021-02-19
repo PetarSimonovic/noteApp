@@ -78,7 +78,7 @@ it("can close a modal", () => {
   clear();
 });
 
-it("will display the full note within the model", () =>{
+it("will display the full note within the model", () => {
   clear();
   openModal("A note");
   expect(document.getElementById("note-paragraph").innerHTML).toEqual("A note");
@@ -88,12 +88,21 @@ it("will display the full note within the model", () =>{
 
 it("will display the full note when a href is clicked", () => {
   clear();
-  fillInContentById("addNoteField", "A really long note is what I keep teling people");
+  fillInContentById(
+    "addNoteField",
+    "A really long note is what I keep teling people"
+  );
   addNote();
   clickNote("0");
-  expect(document.getElementById("note-paragraph").innerHTML).toEqual("A really long note is what I keep teling people");
-  clear();
-  closeModal();
+  setTimeout(() => {
+    expect(document.getElementById("note-paragraph").innerHTML).toEqual(
+      "A really long note is what I keep teling people"
+    );
+    closeModal();
+    clear();
+  }, 500);
 });
 
-console.log("Tests complete");
+setTimeout(() => {
+  console.log("Tests complete");
+}, 500);

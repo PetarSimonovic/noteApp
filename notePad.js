@@ -4,7 +4,7 @@ let addNoteButton = document.getElementById("addNoteButton");
 
 addNoteButton.addEventListener("click", addNote);
 
-notePList.addEventListener("click", e => {
+notePList.addEventListener("click", (e) => {
   console.log(e.target);
   clickNote(e.target.id);
 });
@@ -14,6 +14,33 @@ function addNote() {
   noteList.push(text);
   createListItem(text);
   document.getElementById("addNoteField").value = "";
+}
+
+function emojifiText(message) {
+  let data = { text: message };
+  console.log(data);
+  fetch("https://makers-emojify.herokuapp.com", {
+    method: "POST", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Success:", data);
+      console.log(data);
+
+      let emojifiedText = data.emojified_text;
+      console.log(emojifiedText);
+      openModal(emojifiedText);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  // console.log(emojifiedText);
+
+  // return data.emojified_text;
 }
 
 function createListItem(text) {
@@ -32,7 +59,7 @@ function addAttributes(aNode) {
   aNode.id = `${index}`;
 }
 
-function openModal(note = '') {
+function openModal(note = "") {
   let modal = document.getElementById("modalWrapper");
   let para = document.getElementById("note-paragraph");
   modal.style.display = "block";
@@ -46,5 +73,5 @@ function closeModal() {
 
 function clickNote(noteId) {
   note = noteList[noteId];
-  openModal(note);
+  note2 = emojifiText(note);
 }
