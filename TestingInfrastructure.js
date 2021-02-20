@@ -106,11 +106,13 @@ it("will display the full note when a href is clicked", () => {
 setTimeout(() => {
   console.log("Tests complete");
   development = true;
-  noteList = pageStorage.notes.split(',');
-  if(noteList.length !== 0) {
-    for (var i = 0; i < noteList.length; i++) {
-      text = noteList[i];
-      createListItem(text, i);
-    }
+  if (pageStorage.notes !==0) {
+    noteList = pageStorage.notes.split(',');
+    if(noteList.length !== 0) {
+      for (var i = 0; i < noteList.length; i++) {
+        text = noteList[i];
+        createListItem(text, i);
+        }
+     }
   }
 }, 1500);
