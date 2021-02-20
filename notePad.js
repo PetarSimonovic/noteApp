@@ -3,7 +3,11 @@ let noteList = [];
 let notePList = document.getElementById("noteListWrapper");
 let addNoteButton = document.getElementById("addNoteButton");
 let pageStorage = window.localStorage;
-noteList = pageStorage.notes.split(',');
+
+// Check if pageStorage exists
+if (pageStorage.length !==0) {
+  noteList = pageStorage.notes.split(',');
+}
 
 // event listeners
 addNoteButton.addEventListener("click", addNote);
